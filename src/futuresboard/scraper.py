@@ -527,7 +527,7 @@ def _scrape(app=None):
                     weightused = int(responseJSON["rate_limit_status"])
 
                 if responseJSON["result"] is not None:
-                    if responseJSON["result"]["data"] is not None:
+                    if "data" in [*responseJSON["result"]] and responseJSON["result"]["data"] is not None::
                         for trade in responseJSON["result"]["data"]:
                             trades[trade["created_at"]] = [
                                 trade["id"],
